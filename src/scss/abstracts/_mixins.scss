@@ -1,0 +1,38 @@
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		@media (max-width: 37.5em) {
+			@content;
+		}
+	}
+	@if $breakpoint == tab-port {
+		@media (max-width: 56.25em) {
+			@content;
+		}
+	}
+	@if $breakpoint == tab-land {
+		@media (max-width: 75em) {
+			@content;
+		}
+	}
+	@if $breakpoint == big-desktop {
+		@media (min-width: 112.5em) {
+			@content;
+		}
+	}
+}
+
+@mixin container($width:80%, $min-width:400px, $max-width:1200px) {
+	width: $width;
+	min-width: $min-width;
+	max-width: $max-width;
+}
+
+@mixin flexor($justify, $align, $direction:row) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+
+	@if $direction == column {
+		flex-wrap: $direction nowrap;
+	}
+}

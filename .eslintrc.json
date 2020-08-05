@@ -1,0 +1,90 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "newline-after-var": [
+            "error",
+            "always"
+        ],
+        "accessor-pairs": "error",
+        "array-callback-return": "warn",
+        "class-methods-use-this": "warn",
+        "complexity": "error",
+        "curly": "error",
+        "default-case": "error",
+        "default-case-last": "error",
+        "dot-location": "error",
+        "default-param-last": "error",
+        "dot-notation": "error",
+        "eqeqeq": "error",
+        "grouped-accessor-pairs": "error",
+        "guard-for-in": "error",
+        "max-classes-per-file": [
+            "error",
+            2
+        ],
+        "no-alert": "warn",
+        "no-caller": "error",
+        "no-constructor-return": "error",
+        "no-eq-null": "error",
+        "no-else-return": "error",
+        "no-empty-pattern": "error",
+        "no-floating-decimal": "error",
+        "no-implicit-globals": "error",
+        "no-implied-eval": "error",
+        "no-invalid-this": "error",
+        "no-iterator": "error",
+        "no-labels": "error",
+        "no-lone-blocks": "error",
+        "no-loop-func": "error",
+        "no-magic-numbers": "error",
+        "no-multi-str": "error",
+        "no-new": "error",
+        "no-new-func": "error",
+        "no-new-wrappers": "error",
+        "no-octal-escape": "error",
+        "no-param-reassign": "error",
+        "no-proto": "error",
+        "no-restricted-properties": "error",
+        "no-return-assign": "error",
+        "no-return-await": "error",
+        "no-self-compare": "error",
+        "no-sequences": "error",
+        "no-throw-literal": "error",
+        "no-unmodified-loop-condition": "error",
+        "no-unused-expressions": "error",
+        "no-useless-call": "error",
+        "no-useless-concat": "error",
+        "no-void": "error",
+        "no-warning-comments": "error",
+        "prefer-named-capture-group": "error",
+        "prefer-promise-reject-errors": "error",
+        "prefer-regex-literals": "error",
+        "radix": "error",
+        "require-await": "error",
+        "require-unicode-regexp": "warn",
+        "vars-on-top": "warn",
+        "camelcase": "error",
+        "prefer-spread": "warn",
+        "prefer-rest-params": "error",
+        "consistent-return": "error"
+    }
+}
