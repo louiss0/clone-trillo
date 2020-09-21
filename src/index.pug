@@ -1,2 +1,107 @@
 extends html/layout.pug
 append content
+    .container
+        header.header
+            .logo
+                img(src="./assets/img/logo.png", alt="Trillo logo")
+            form.search(action="" )
+                input.search__input(type="text" placeholder="Search Hotels")
+                button.search__button
+                    svg.search__icon
+                        use(href="./assets/SVG/symbol-defs.svg#icon-magnifying-glass")
+            nav.user-nav
+                mixin iconBox(iconLink, notification)
+                    .user-nav__icon-box
+                        svg.user-nav__icon
+                            use(href=`./assets/SVG/symbol-defs.svg#icon-${iconLink}`)
+                        span.user-nav__notification #{notification}
+                +iconBox('bookmark', 7)
+                +iconBox('chat', 13)
+                .user-nav__user
+                    img.user-nav__user-photo(src="./assets/img/user.jpg", alt="User Photo")
+                    span.user-nav__user-name Jonas
+        .content
+            nav.sidebar
+                - const navItems = [{icon:"home", description:"Hotel"},{icon:"aircraft-take-off", description:"Flight"},{icon:"key", description:"Tour rental"},{icon:"map", description:"tours"}]
+                
+                ul.side-nav
+                        for item, i in navItems
+                            if i == 0 
+                                li.side-nav__item.side-nav__item--active
+                                    a.side-nav__link(href="#")
+                                        svg.side-nav__icon
+                                            use(href=`./assets/SVG/symbol-defs.svg#icon-${item.icon}`)
+                                        span #{item.description}
+                            else 
+                                li.side-nav__item
+                                    a.side-nav__link(href="#")
+                                        svg.side-nav__icon
+                                            use(href=`./assets/SVG/symbol-defs.svg#icon-${item.icon}`)
+                                        span #{item.description}
+                .legal.
+                    &copy; 2017 by Trillo. all rights reserved.
+            
+            main.hotel-view
+                .gallery
+                    mixin galleryImage(image,text)
+                        figure.gallery__item
+                            img.gallery__photo(src=`./assets/img/${image}`, alt=text)
+                    +galleryImage("hotel-1.jpg", "Photo of hotel 1")
+                    +galleryImage("hotel-2.jpg", "Photo of hotel 2")
+                    +galleryImage("hotel-3.jpg", "Photo of hotel 3")
+            
+                .overview
+                    h1.overview__heading Hotel las Palmas
+                    .overview__stars
+                        - let i = 0; 
+                            while i < 5
+                                svg.overview__icon-star(data-num=i++)
+                                    use(href="./assets/SVG/symbol-defs.svg#icon-star")
+                    .overview__location
+                                svg.overview__icon-location
+                                    use(href="./assets/SVG/symbol-defs.svg#icon-location-pin")
+                                button.btn-inline Albufeira, Portugal
+                    .overview__rating
+                        .overview__rating-average 8.6
+                        .overview__rating-count 429 votes
+            
+                .detail
+                    .description 
+                        p.paragraph. 
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nisi dignissimos debitis ratione sapiente saepe. Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate.
+                        p.paragraph. 
+                            Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate delectus, inventore iure aliquid aliquam.
+                        ul.list
+                            - const features = ['Close to the beach', "Breakfast included", 'Free airport shuttle', 'Free wifi in all rooms', 'air conditioning and heating', 'pets allowed', 'we speak all languages', 'perfect for families']
+                            for feature in features
+                                li.list__item #{feature}
+                        .recommend
+                            p.recommend__count lucy and three friends recommend this hotel
+                            .recommend__friends
+                                - let j = 3;
+                                    while j < 7
+                                        img.recommend__photo(src=`./assets/img/user-${j}.jpg`, alt=`Photo ${j - 2}` data-num=j++)
+
+                    figure.user-reviews 
+                        
+                        - const userReviews = [{image:"user-1.jpg", name:"Nick Smith", date:"Feb 23 2017", rating: 7.8, description:`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi, totam, itaque officia ex.`},{image:"user-2.jpg", name:"Mary Thomas", date:"Setember 13 2017", rating: 9.3, description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi.`}]
+
+                        for userReview in userReviews 
+                            figure.review
+                                blockquote.review__text #{userReview.description}
+                                    
+                                figcaption.review__user
+                                    img.review__photo(src=`./assets/img/${userReview.image}`, alt=userReview.name)
+                                    .review__user-box
+                                        p.review__user-name #{userReview.name}        
+                                        p.review__user-date #{userReview.date}
+                                    .review__rating #{userReview.rating}
+                        button.btn-inline Show all 
+                            span. 
+                                &rarr;
+                                
+                .cta
+                    h2.cta__book-now Good news We have four free rooms for your selected dates
+                    button.btn 
+                        span.btn__visible Book Now 
+                        span.btn__invisible Only 4 rooms left 

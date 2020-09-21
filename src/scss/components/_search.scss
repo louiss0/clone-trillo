@@ -1,0 +1,60 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+
+.search{
+    flex: 0 0 40%;
+    @include mixins.flexor($justify:center, $align:center);
+
+@media screen and (max-width: variables.$bp-smallest) {
+    
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--grey-light-2);
+
+   }
+    
+    &__input{
+        font-family: inherit;
+        font-size: inherit;
+        background-color: var(--grey-light-2);
+        border: none;
+        padding: 0.7rem 2rem;
+        border-radius: 100px;
+        width: 90%;
+        transition: width 200ms ease-in, background-color 100ms ease-out;
+        margin-right: -3rem;
+        &:focus{
+            color: var(--grey-dark-4);
+            outline: none;
+            width: 100%;
+            background-color: var(--grey-light-3);
+            
+        }
+
+        &:focus + &__button{
+            background-color: var(--grey-light-3);
+        }
+
+        &::placeholder{
+            font-weight: 100;
+            color: var(--grey-light-4);
+        }
+    }
+    &__icon{
+        height: 2rem;
+        width: 2rem;
+        fill: var(--grey-dark-3);
+    }
+    &__button{
+        
+        &:focus{
+            outline:currentColor;
+
+        }
+        &:active{
+            transform: translateY(2px);
+        }
+    }
+}
+
+

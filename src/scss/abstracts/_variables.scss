@@ -1,11 +1,23 @@
 :root {
-	--primary-font: ;
-	--secondary-font: ;
-	--light-: ;
-	--mid-: ;
-	--dark-: ;
-	--sm: ;
-	--md: ;
-	--lg: ;
-	--xl: ;
+	--primary-font: "Open Sans", sans-serif;
+	--light-primary:hsl(345, 100%, 60%);
+	--primary: hsl(343, 82%, 55%) ;
+	--dark-primary:hsl(338, 66%, 44%) ;
+	--grey-light-1: #faf9f9;
+	--grey-light-2: #f4f2f2;
+	--grey-light-3: #f0eeee;
+	--grey-light-4: #ccc;	
+	--grey-dark-1: #333;
+	--grey-dark-2: #777;
+	--grey-dark-3: #999;
+	--shadow: 0 2rem 6rem rgba($color: #000000, $alpha: .3);
+	--shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.6);
+	--gray-line: 1px solid var(--grey-light-2)
 }
+
+$bp-largest: 75em;
+$bp-large: 68.75em;
+$bp-medium: 56.25em;
+$bp-small: 37.5em;
+$bp-smallest: 31.5em;
+

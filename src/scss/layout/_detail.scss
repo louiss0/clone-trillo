@@ -1,0 +1,79 @@
+@use '../abstracts/variables';
+
+.detail{
+display: flex;
+padding: 4.5rem;
+font-size: 1.4rem;
+background-color: var(--grey-light-1);
+@media screen and (max-width: variables.$bp-medium) {
+        padding: 3rem;
+    }
+
+@media screen and (max-width: variables.$bp-small) {
+        flex-direction: column;
+    }
+
+
+}
+
+
+.description{
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+    border-bottom: var(--gray-line);
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    @media screen and (max-width: variables.$bp-medium) {
+        padding: 2rem;
+        margin-right: 3rem;
+
+    }
+
+    @media screen and (max-width: variables.$bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+    
+
+}
+.user-reviews{
+flex: 1;
+}
+
+.paragraph{
+    &:not(:last-of-type){
+        margin-bottom: 2rem;
+    }
+}
+.list{
+    margin: 3rem 0;
+    border-top: var(--gray-line);
+    border-bottom: var(--gray-line);
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item{
+        flex: 0 0 50%;
+        margin-bottom: .7em;
+        display: flex;
+        align-items: center;
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 1rem;
+            width: 1rem;
+            margin: .7rem;
+            
+            background-image: url('/assets/img/chevron-thin-right.svg');
+            background-size: cover;
+
+            @supports (--webkit-mask-image:url()) or (mask-image: url()){
+            
+            background: var(--primary);
+            mask-image: url('/assets/img/chevron-thin-right.svg');
+            mask-size: cover;
+
+            }
+        }
+    }
+}

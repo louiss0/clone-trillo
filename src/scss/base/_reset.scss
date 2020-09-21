@@ -1,4 +1,6 @@
 @use '../abstracts/mixins';
+@use '../abstracts/amimations';
+@use "../abstracts/variables";
 
 *,
 *::before,
@@ -11,22 +13,21 @@
 html {
 	font-size: 62.5%; // 1rem = 10px
 	box-sizing: border-box;
-	@include mixins.respond(big-desktop) {
-		font-size: 80%;
-	}
-	@include mixins.respond(tab-land) {
-		font-size: 70%;
-	}
-	@include mixins.respond(tab-port) {
-		font-size: 60%;
-	}
-	@include mixins.respond(phone) {
-		font-size: 50%;
-	}
+	
+	@media screen and (max-width: variables.$bp-large) {
+       font-size: 50%;
+   }
+
 }
 
 body {
 	font-family: var(--primary-font);
+	font-weight: 300;
+	background-image: linear-gradient(to right bottom, var(--light-primary), var(--dark-primary)) ;
+	line-height: 1.6;
+	border-style: cover;
+	background-repeat: no-repeat;
+	min-height: 100vh;
 }
 
 ul {
@@ -50,3 +51,99 @@ img {
 p {
 	line-height: 120%;
 }
+
+.logo{
+	height: 3.25rem;
+	width: 4rem;
+	margin-left: 3rem;
+}
+
+.btn-inline{
+	font-size: inherit;
+	color: var(--primary);
+	border-bottom: 1px solid currentColor;
+	display: inline-block;
+	background-color: transparent;
+	transition: color 800ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+	& span{
+		margin-left: 3px;
+		transition: margin-left 500ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
+	}
+	&:hover{
+		color: var(--grey-dark-1);
+		& span{
+		margin-left: 8px;
+	}
+	}
+	&:focus{
+		animation: pulsate 1000ms infinite;
+	}
+}
+
+.cta{
+	text-align: center;
+	padding: 3.5rem 0;
+
+	&__book-now{
+		font-size: 2rem;
+		text-transform: uppercase;
+		font-weight: 300;
+		margin: 2.5rem;
+
+	}
+	
+	@media screen and (max-width: variables.$bp-medium) {
+        padding: 2.5rem 0;
+
+    }
+}
+
+.btn{
+	font-size: 1.5rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	border-radius: 150px;
+	background-image: linear-gradient(to right, var(--light-primary), var(--dark-primary));
+	position: relative;
+	transition: background-image 500ms ease-in;
+	overflow: hidden;
+	color: #ffffff;
+	width: 30rem;
+	display: inline-block;
+	cursor: pointer;
+	&:hover{
+	background-image: linear-gradient(to right, var(--dark-primary), var(--light-primary));
+
+	}
+	&:hover &__visible{
+			transform: translateY(100%);
+		}
+	&:hover &__invisible{
+			top: 0;
+		}
+	&:focus{
+		outline: none;
+		animation: pulsate 500ms infinite;
+	}
+	& >  * {
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		transition: top 200ms cubic-bezier(0.95, 0.05, 0.795, 0.035), transform 200ms cubic-bezier(1, 0, 0, 1);
+	}
+
+	&__visible{
+		padding: 2rem 7.5rem;
+	}
+	&__invisible{
+		position: absolute;
+		padding: 2rem 0;			
+		top: -100%;
+		left: 0;
+		transition: top 200ms;
+	}
+
+}
+
+
+

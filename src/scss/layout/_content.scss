@@ -1,0 +1,10 @@
+@use '../abstracts/variables';
+
+.content{
+display: flex;
+
+@media screen and (max-width: variables.$bp-medium) {
+       font-size: 50%;
+       flex-direction: column;
+   }
+}

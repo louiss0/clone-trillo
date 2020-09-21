@@ -1,0 +1,22 @@
+
+
+
+@mixin pulsate_styles($transform:scale(1), $shadow:none){    
+    transform: $transform;
+    box-shadow: $shadow
+}
+
+
+@keyframes pulsate{
+    0%{
+    @include pulsate_styles()
+    }
+    50%{
+    @include pulsate_styles(scale(1.05), rgba(0, 0, 0, 0.527))
+        
+    }
+    100%{
+    @include pulsate_styles()
+        
+    }
+}

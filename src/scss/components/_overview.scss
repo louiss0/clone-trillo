@@ -1,0 +1,72 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+
+.overview {
+    display: flex;
+    border-bottom: var(--gray-line);
+    align-items: center;
+
+
+
+
+    &__heading{
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
+
+    @media screen and (max-width: variables.$bp-small) {
+
+        font-size: 1.8rem;
+        padding: 1.25rem 2rem;
+    
+    }
+
+    }
+    &__stars{
+        margin-right: auto;
+        display: flex;
+    }
+    &__icon-star,
+    &__icon-location{
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--primary);
+    }
+    &__location{
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+    &__icon-location{
+        margin-right: .5rem;
+    }
+    &__rating{
+        background-color: var(--primary);
+        color: #ffffff;
+        margin-left: 3rem;
+        align-self: stretch;
+        padding: 1rem;
+        @include mixins.flexor(center, center, column);
+    @media screen and (max-width: variables.$bp-small) {
+        padding: 0 1.5rem;
+    }
+        &-average{
+            font-size: 2.25rem;
+      @media screen and (max-width: variables.$bp-small) {
+        font-size: 1.8rem;
+    }       
+        }
+        &-count{
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: -3px;
+      @media screen and (max-width: variables.$bp-small) {
+        font-size: .5rem;
+    } 
+        }
+    }
+
+
+}

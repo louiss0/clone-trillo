@@ -30,9 +30,11 @@
 @mixin flexor($justify, $align, $direction:row) {
 	display: flex;
 	justify-content: $justify;
-	align-items: $align;
-
+	align-items: $align;	
+	@if $direction == row {
+		flex-flow: $direction wrap;
+	}
 	@if $direction == column {
-		flex-wrap: $direction nowrap;
+		flex-flow: $direction nowrap;
 	}
 }

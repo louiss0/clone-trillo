@@ -1,0 +1,17 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+
+.header {
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: 1px solid var(--grey-light-2);
+   @include mixins.flexor(space-between, center);
+@media screen and (max-width: variables.$bp-smallest) {
+    
+    flex-wrap: wrap;
+    height: 15rem;
+    align-content: space-around;
+   }
+       
+}
